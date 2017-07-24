@@ -43,4 +43,25 @@ describe('App.vue', () => {
       });
     });
   });
+
+  describe('Render', () => {
+    beforeEach(() => {
+      Constructor = Vue.extend(App);
+      vm = new Constructor().$mount();
+    });
+
+    it('should only show ViewStats if there are results from the api', () => {
+      vm.noResults = false;
+      return vm.$nextTick(() => {
+        expect(!!vm.$el.querySelector('.infograph')).toBe(true);
+      });
+    });
+
+    it('should show an error message if there are no results', () => {
+      vm.noResults = true;
+      return vm.$nextTick(() => {
+        expect(!!vm.$el.querySelector('.msg-error')).toBe(true);
+      });
+    });
+  });
 });

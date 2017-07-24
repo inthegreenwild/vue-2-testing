@@ -88,9 +88,12 @@ const apiData = [
 ]
 
 const apiCity = 'chicago';
+const apiLowest = 'Housing';
+const apiHighest = 'Startups';
 
 export {
   apiData,
-  apiCity,
+  apiLowest,
+  apiHighest,
+  apiCity
 };
-

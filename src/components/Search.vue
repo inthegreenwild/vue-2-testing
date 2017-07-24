@@ -34,10 +34,6 @@
         return `https://api.teleport.org/api/urban_areas/slug:${validSlug}/scores/`;
       },
     },
-
-    mounted(){
-      console.log("MOUNTED")
-    }
   };
 </script>
 
