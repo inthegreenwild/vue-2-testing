@@ -27,7 +27,7 @@ export default {
     return {
       categories: [],
       currentCity: '',
-      noResults: true,
+      noResults: false,
     };
   },
 };
