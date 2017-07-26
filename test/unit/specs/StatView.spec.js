@@ -18,7 +18,7 @@ describe('Stat.vue', () => {
           propsData: {
             scores: apiData,
             city: apiCity,
-          }
+          },
         }).$mount();
       });
 

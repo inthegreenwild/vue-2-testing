@@ -26,20 +26,20 @@ export default {
       this.noResults = true;
       this.currentCity = city;
       this.categories.length = 0;
-    }
+    },
   },
   data() {
     return {
       categories: [],
       currentCity: '',
-      noResults: true
+      noResults: true,
     };
   },
   computed: {
     showStatView() {
       return !!(this.categories && this.categories.length && this.currentCity.length);
-    }
-  }
+    },
+  },
 };
 </script>
 

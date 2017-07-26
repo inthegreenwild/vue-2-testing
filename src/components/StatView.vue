@@ -16,21 +16,23 @@
 
   export default {
     components: {
-      Stat
+      Stat,
     },
     props: {
       scores: {
         type: Array,
         required: true,
+        default: () => [],
       },
       city: {
         type: String,
-        required: true
-      }
+        required: false,
+        default: '',
+      },
     },
     data() {
       return {
-        order: 'asc'
+        order: 'asc',
       };
     },
     computed: {
@@ -39,8 +41,8 @@
           return this.scores.sort((a, b) => a.score_out_of_10 - b.score_out_of_10);
         }
         return this.scores.sort((a, b) => b.score_out_of_10 - a.score_out_of_10);
-      }
-    }
+      },
+    },
   };
 </script>
 
