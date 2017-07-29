@@ -2,7 +2,7 @@
   <div id="app">
     <h2> Find Quality Of Life Statistics By City </h2>
     <search @update-stats="updateStats" @no-results="handleNoResults"></search>
-    <stat-view :city="currentCity" :scores="categories" v-if="!noResults"></stat-view>
+    <stat-view :city="currentCity" :scores="categories" v-if="!noResults && categories.length"></stat-view>
     <p class="msg-error" v-show="noResults"> no results found for "{{currentCity}}" </p>
   </div>
 </template>
@@ -32,13 +32,8 @@ export default {
     return {
       categories: [],
       currentCity: '',
-      noResults: true,
+      noResults: false,
     };
-  },
-  computed: {
-    showStatView() {
-      return !!(this.categories && this.categories.length && this.currentCity.length);
-    },
   },
 };
 </script>
