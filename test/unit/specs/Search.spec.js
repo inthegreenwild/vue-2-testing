@@ -35,12 +35,12 @@ describe('Search.vue', () => {
           responseText: {},
         });
 
-        /* spy on our buildQuery method */
-        spyOn(vm, 'buildQuery').and.callThrough();
+        /* spy on our buildTeleportURL method */
+        spyOn(vm, 'buildTeleportURL').and.callThrough();
 
         /* see note below this snippet on jasmine promises */
         return vm.getDataForCity(city).then(() => {
-          expect(vm.buildQuery).toHaveBeenCalledWith(city);
+          expect(vm.buildTeleportURL).toHaveBeenCalledWith(city);
         });
       });
 

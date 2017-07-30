@@ -7,7 +7,7 @@
 
 <script>
   import axios from 'axios';
-  import endpoints from '../mixins/endpoints';
+  import endpoints from '@/mixins/endpoints';
 
   export default {
     mixins: [

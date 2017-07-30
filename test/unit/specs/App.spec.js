@@ -1,5 +1,6 @@
 import Vue from 'vue';
 import App from '@/App';
+import { apiData } from '../fixtures/api-data.fixture';
 
 describe('App.vue', () => {
   let Constructor;
@@ -52,6 +53,8 @@ describe('App.vue', () => {
 
     it('should only show ViewStats if there are results from the api', () => {
       vm.noResults = false;
+      vm.categories = apiData;
+
       return vm.$nextTick(() => {
         expect(!!vm.$el.querySelector('.infograph')).toBe(true);
       });
