@@ -11,12 +11,12 @@ describe('Stat.vue', () => {
   });
 
   describe('Computed properties', () => {
-    describe('orderedScores', () => {
+    describe('orderedCategories', () => {
       beforeEach(() => {
         Constructor = Vue.extend(StatView);
         vm = new Constructor({
           propsData: {
-            scores: apiData,
+            categories: apiData.categories,
             city: apiCity,
           },
         }).$mount();
@@ -24,13 +24,13 @@ describe('Stat.vue', () => {
 
       it('should return the data in ascending order', () => {
         vm.order = 'asc';
-        const asc = vm.orderedScores;
+        const asc = vm.orderedCategories;
         expect(asc[0].name).toEqual(apiLowest);
       });
 
       it('should return the data in descending order', () => {
         vm.order = 'desc';
-        const desc = vm.orderedScores;
+        const desc = vm.orderedCategories;
         expect(desc[0].name).toEqual(apiHighest);
       });
     });

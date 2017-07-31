@@ -18,14 +18,14 @@ describe('App.vue', () => {
       });
 
       it('set the current city and categories', () => {
-        const data = {
+        const mock = {
           city: 'chicago',
-          data: ['foo'],
+          data: apiData,
         };
 
-        vm.updateStats(data);
-        expect(vm.currentCity).toBe(data.city);
-        expect(vm.categories).toEqual(data.categories);
+        vm.updateStats(mock);
+        expect(vm.currentCity).toBe(mock.city);
+        expect(vm.categories).toEqual(apiData.categories);
       });
     });
 
@@ -53,7 +53,7 @@ describe('App.vue', () => {
 
     it('should only show ViewStats if there are results from the api', () => {
       vm.noResults = false;
-      vm.categories = apiData;
+      vm.categories = apiData.categories;
 
       return vm.$nextTick(() => {
         expect(!!vm.$el.querySelector('.infograph')).toBe(true);

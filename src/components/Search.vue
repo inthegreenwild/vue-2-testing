@@ -19,8 +19,6 @@
       };
     },
     methods: {
-      /* Make an API call to teleport to get our quality of life statistics and
-      return the data up to our top-level component App.vue */
       getDataForCity(city) {
         const query = this.buildTeleportURL(city);
 

@@ -7,7 +7,7 @@
       <input type="radio" id="desc" value="desc" v-model="order">
       <label for="desc">Descending</label>
     </div>
-      <stat v-for="score in orderedScores" :key="score.name" :data="score"></stat>
+      <stat v-for="category in orderedCategories" :key="category.name" :category="category"></stat>
   </div>
 </template>
 
@@ -19,10 +19,9 @@
       Stat,
     },
     props: {
-      scores: {
+      categories: {
         type: Array,
         required: true,
-        default: () => [],
       },
       city: {
         type: String,
@@ -36,11 +35,11 @@
       };
     },
     computed: {
-      orderedScores() {
+      orderedCategories() {
         if (this.order === 'asc') {
-          return this.scores.sort((a, b) => a.score_out_of_10 - b.score_out_of_10);
+          return this.categories.sort((a, b) => a.score_out_of_10 - b.score_out_of_10);
         }
-        return this.scores.sort((a, b) => b.score_out_of_10 - a.score_out_of_10);
+        return this.categories.sort((a, b) => b.score_out_of_10 - a.score_out_of_10);
       },
     },
   };

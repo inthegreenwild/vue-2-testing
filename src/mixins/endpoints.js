@@ -1,7 +1,4 @@
 export default {
-  data: {
-    teleport: '',
-  },
   methods: {
     buildTeleportURL(query) {
       const validSlug = query.split(' ').join('-').toLowerCase();

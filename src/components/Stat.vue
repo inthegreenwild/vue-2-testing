@@ -1,31 +1,30 @@
 <template>
-  <div class="stat-group">
-    <span class="stat-label" v-html="data.name"></span>
-    <span class="stat-bar" :style="starBarStyle"></span>
-    <span class="stat-value" v-html="statValue"></span>
+  <div class="category-group">
+    <span class="category-label" v-html="category.name"></span>
+    <span class="category-bar" :style="categoryBarStyle"></span>
+    <span class="category-value" v-html="categoryValue"></span>
   </div>
 </template>
 
 <script>
   export default {
     props: {
-      data: {
+      category: {
         type: Object,
         required: true,
-        default: () => {},
       },
     },
     computed: {
-      starBarStyle() {
+      categoryBarStyle() {
         return {
           width: `${this.scorePercentage}px`,
-          background: this.statBarColor,
+          background: this.categoryBarColor,
         };
       },
-      statValue() {
-        return parseInt(this.data.score_out_of_10, 10);
+      categoryValue() {
+        return parseInt(this.category.score_out_of_10, 10);
       },
-      statBarColor() {
+      categoryBarColor() {
         if (this.scorePercentage < 40) {
           return 'tomato';
         }
@@ -35,30 +34,30 @@
         return 'MediumAquaMarine';
       },
       scorePercentage() {
-        return (this.data.score_out_of_10 / 10) * 100;
+        return (this.category.score_out_of_10 / 10) * 100;
       },
     },
   };
 </script>
 
 <style>
-  .stat-group {
+  .category-group {
     margin: 0 auto;
     height: 25px;
     width: 320px;
   }
-  .stat-bar {
+  .category-bar {
     margin-top: 10px;
     height: 5px;
     float: left;
   }
-  .stat-label {
+  .category-label {
     width: 180px;
     margin-right: 5px;
     text-align: left;
     float: left;
   }
-  .stat-value {
+  .category-value {
     float: right;
   }
 </style>

@@ -15,7 +15,7 @@ describe('Stat.vue', () => {
         Constructor = Vue.extend(Search);
         vm = new Constructor({
           propsData: {
-            data: {
+            category: {
               score_out_of_10: 5,
             },
           },
@@ -27,7 +27,7 @@ describe('Stat.vue', () => {
       });
     });
 
-    describe('starBarColor', () => {
+    describe('categoryBarColor', () => {
       beforeEach(() => {
         Constructor = Vue.extend(Search);
       });
@@ -43,23 +43,23 @@ describe('Stat.vue', () => {
             highest matching value */
           vm = new Constructor({
             propsData: {
-              data: {
+              category: {
                 score_out_of_10: numbers[idx],
               },
             },
           }).$mount();
           /* jasmine will run three expectations, one for each possible outcome */
-          expect(vm.statBarColor).toBe(color);
+          expect(vm.categoryBarColor).toBe(color);
         });
       });
     });
 
-    describe('starBarStyle', () => {
+    describe('categoryBarStyle', () => {
       beforeEach(() => {
         Constructor = Vue.extend(Search);
         vm = new Constructor({
           propsData: {
-            data: {
+            category: {
               score_out_of_10: 5,
             },
           },
@@ -72,16 +72,16 @@ describe('Stat.vue', () => {
           background: 'orange',
         };
 
-        expect(vm.starBarStyle).toEqual(expectation);
+        expect(vm.categoryBarStyle).toEqual(expectation);
       });
     });
 
-    describe('statValue', () => {
+    describe('categoryValue', () => {
       beforeEach(() => {
         Constructor = Vue.extend(Search);
         vm = new Constructor({
           propsData: {
-            data: {
+            category: {
               score_out_of_10: 5,
             },
           },
@@ -89,7 +89,7 @@ describe('Stat.vue', () => {
       });
 
       it('should return an integer for the current score', () => {
-        expect(vm.statValue).toBe(5);
+        expect(vm.categoryValue).toBe(5);
       });
     });
   });
